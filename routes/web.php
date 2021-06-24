@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,35 +20,13 @@ Route::get('/home', function () {
 });
 // Route::get('/student/create', [StudentController::class, 'create']);
 
-Route::get('/student/create', function () {
-    return view('admin/student/Create');
-});
-Route::get('/student/list', function () {
-    return view('admin/student/ListStudent');
-});
-Route::get('/student/detail', function () {
-    return view('admin/student/DetailStudent');
-});
-Route::get('/student/update', function () {
-    return view('admin/student/UpdateStudent');
-});
-Route::get('/student/delete', function () {
-    return view('admin/student/DeleteStudent');
-});
+//Route::get('/student/create', function () {
+//    return view('admin/student/Create');
+//});
+Route::get('/users/signup', [UserController::class , 'signup']);
+Route::post('/users/signup', [UserController::class , 'signups']);
 
+Route::get('/users/login', [UserController::class , 'login']);
+Route::post('/users/login', [UserController::class , 'logins']);
 
-Route::get('/teacher/create', function () {
-    return view('admin/teacher/CreateTeacher');
-});
-Route::get('/teacher/list', function () {
-    return view('admin/teacher/ListTeacher');
-});
-Route::get('/teacher/detail', function () {
-    return view('admin/teacher/DetailTeacher');
-});
-Route::get('/teacher/update', function () {
-    return view('admin/teacher/UpdateTeacher');
-});
-Route::get('/teacher/delete', function () {
-    return view('admin/teacher/DeleteTeacher');
-});
+Route::get('/users/detail/{id}', [UserController::class , 'getUserDetail']);
