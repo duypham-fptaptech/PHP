@@ -25,7 +25,12 @@ class UserController extends Controller
         $phone = $requests->get('phone');
         $address = $requests->get('address');
         $identityCard = $requests->get('identityCard');
-        return sprintf('welcome %s, email %s, phone %s, Address %s. Identity Card %s', $fullName, $email, $phone, $address, $identityCard);
+        return view('user.Login-success',
+            ['fullName' => $fullName,
+             'email' => $email,
+             'phone' => $phone,
+             'address' => $address,
+             'identityCard' => $identityCard]);
     }
 
     public function getUserDetail($id)

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LayoutController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,8 @@ Route::get('/users/login', [UserController::class , 'login']);
 Route::post('/users/login', [UserController::class , 'logins']);
 
 Route::get('/users/detail/{id}', [UserController::class , 'getUserDetail']);
+
+Route::get('/layout/page1', [LayoutController::class , 'Page1']);
+Route::get('/layout/page2', [LayoutController::class , 'Page2']);
+Route::get('/layout/page3', [LayoutController::class , 'Page3']);
+
